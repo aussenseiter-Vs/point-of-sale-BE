@@ -14,7 +14,6 @@ const reportRoutes = require('./routes/report.routes')
 const stokMasukRoutes = require('./routes/stokMasuk.routes')
 const shiftRoutes = require('./routes/shift.routes')
 const cashReconciliationRoutes = require('./routes/cashReconciliation.routes')
-const voidLogRoutes = require('./routes/voidLog.routes')
 const passwordHistoryRoutes = require('./routes/passwordHistory.routes')
 const couponRoutes = require('./routes/coupon.routes')
 
@@ -28,7 +27,6 @@ app.use('/report', reportRoutes)
 app.use('/stok-masuk', stokMasukRoutes)
 app.use('/shift', shiftRoutes)
 app.use('/reconciliation', cashReconciliationRoutes)
-app.use('/void-log', voidLogRoutes)
 app.use('/coupons', couponRoutes)
 
 app.get('/', (req, res) => {

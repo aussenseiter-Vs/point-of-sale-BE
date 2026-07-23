@@ -496,7 +496,7 @@
               "host": ["{{base_url}}"],
               "path": ["transaksi", "{{transaksi_id}}"]
             },
-            "description": "Soft-delete (void) a transaction. Accepts JSON body with 'reason' (required). Creates a void_log entry before deleting. Reason must not be empty."
+            "description": "Soft-delete (void) a transaction. Accepts JSON body with 'reason' (required). Reason must not be empty."
           }
         },
         {
@@ -765,42 +765,6 @@
         }
       ],
       "description": "Cash reconciliation at shift close. Kasir declares actual cash, system computes expected vs discrepancy."
-    },
-    {
-      "name": "Void Log [ADMIN]",
-      "item": [
-        {
-          "name": "Get All Void Logs",
-          "request": {
-            "method": "GET",
-            "header": [
-              { "key": "Authorization", "value": "Bearer {{token}}" }
-            ],
-            "url": {
-              "raw": "{{base_url}}/void-log",
-              "host": ["{{base_url}}"],
-              "path": ["void-log"]
-            },
-            "description": "List all void logs with transaction info and who voided. ADMIN ONLY."
-          }
-        },
-        {
-          "name": "Get Void Log By Transaction",
-          "request": {
-            "method": "GET",
-            "header": [
-              { "key": "Authorization", "value": "Bearer {{token}}" }
-            ],
-            "url": {
-              "raw": "{{base_url}}/void-log/transaksi/{{transaksi_id}}",
-              "host": ["{{base_url}}"],
-              "path": ["void-log", "transaksi", "{{transaksi_id}}"]
-            },
-            "description": "Get void log for a specific transaction. ADMIN ONLY."
-          }
-        }
-      ],
-      "description": "Transaction void audit log. Tracks who voided a transaction and why."
     }
   ],
   "variable": [

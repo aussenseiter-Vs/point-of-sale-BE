@@ -5,7 +5,6 @@ const produkModel = require('../models/produk.models')
 const kasirModel = require('../models/kasir.model')
 const userModel = require('../models/user.model')
 const shiftModel = require('../models/shift.model')
-const voidLogModel = require('../models/voidLog.model')
 const couponModel = require('../models/coupon.model')
 
 exports.getAll = async () => {
@@ -123,12 +122,6 @@ exports.softDelete = async (id, reason, voidedBy) => {
 
   const transaksi = await transaksiModel.findById(id)
   if (!transaksi) throw new AppError('TRANSAKSI_NOT_FOUND', 404)
-
-  await voidLogModel.create({
-    transaksi_id: id,
-    voided_by: voidedBy,
-    reason
-  })
 
   await transaksiModel.softDelete(id)
 }
